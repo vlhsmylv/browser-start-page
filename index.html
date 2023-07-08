@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script defer src="./constants.js"></script>
+    <script defer src="./components/toast.js"></script>
+    <script defer src="./components/frequently_used.js"></script>
+    <script defer src="./components/todo.js"></script>
+    <script defer src="./components/notes.js"></script>
+    <script defer src="./script.js"></script>
+    <title>Webinator</title>
+  </head>
+  <body class="bg-slate-900 text-white px-56 py-16">
+    <header>
+      <h1 class="text-4xl">👋 Welcome!</h1>
+    </header>
+    <form
+      action="https://www.google.com/search"
+      class="flex flex-row gap-2 my-8"
+    >
+      <input
+        autocomplete="off"
+        name="q"
+        class="w-full bg-transparent border-gray-500 border-2 p-3 rounded-lg outline-none placeholder-gray-500 text-xl"
+        placeholder="Search anything"
+      />
+      <button
+        type="submit"
+        class="outline-none border-gray-500 border-2 p-3 rounded-lg w-16 h-16 flex flex-row items-center justify-center"
+      >
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+    <div class="grid gap-4 grid-cols-2 my-8">
+      <div class="bg-slate-600 p-3 rounded-lg max-h-96">
+        <h3 class="text-2xl">Todo</h3>
+        <div class="mt-5 flex flex-row gap-2">
+          <input
+            class="w-full h-10 bg-transparent border-gray-500 border-2 p-2 rounded-lg outline-none placeholder-gray-500 text-md"
+            id="new-todo"
+            placeholder="Add new todo"
+          />
+          <button
+            type="submit"
+            class="outline-none border-gray-500 border-2 p-2 rounded-lg w-10 flex flex-row items-center justify-center outline-none"
+            id="new-todo-btn"
+          >
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <div
+          class="flex flex-col gap-5 mt-5 max-h-56 overflow-y-auto"
+          id="todo"
+        ></div>
+      </div>
+      <div class="bg-slate-600 p-3 rounded-lg max-h-96">
+        <h3 class="text-2xl">Notes</h3>
+        <textarea
+          id="notes"
+          class="overflow-y-auto bg-transparent resize-y w-full border-gray-500 focus:border-2 focus:p-2 outline-none rounded-lg mt-5"
+        ></textarea>
+      </div>
+    </div>
+    <hr class="h-px bg-gray-200 border-0 bg-gray-700" />
+    <div
+      class="grid gap-4 grid-cols-2 mt-8 overflow-y-auto"
+      id="frequently_used"
+    ></div>
+    <div id="toast" class="fixed right-10 top-10 flex flex-col gap-5"></div>
+    <footer class="mt-10 text-gray-400 flex flex-row justify-between items-center">
+      <div>
+        &copy; Valeh Ismayilov 2023
+      </div>
+      <div>
+        <a href="https://vlhsmylv.github.io/browser-start-page" class="text-3xl" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
