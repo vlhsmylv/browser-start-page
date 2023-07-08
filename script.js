@@ -7,7 +7,7 @@ frequently_used_fnc().map((el) => {
 // **** NOTES ****
 
 function updateRows() {
-  const len = getNotes().length;
+  const len = getNotes() ? getNotes().length : 0;
   const rowChars = 68;
 
   const conditionalRows =
@@ -46,7 +46,7 @@ $("#new-todo").keypress("13", function (e) {
           title: e.target.value,
           createdAt: new Date(),
         })
-      : false;
+      : toast.error("Add title to your task!");
   }
 });
 
@@ -56,5 +56,5 @@ $("#new-todo-btn").on("click", function (e) {
         title: $("#new-todo").val(),
         createdAt: new Date(),
       })
-    : false;
+    : toast.error("Add title to your task!");
 });

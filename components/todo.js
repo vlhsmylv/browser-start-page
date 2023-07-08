@@ -9,7 +9,7 @@ function addTodo(data) {
 
   setTodo(JSON.stringify(todo || [{ ...data }]));
 
-  $("#new-todo").val(" ");
+  $("#new-todo").val("");
   toast.success("Task created successfully!");
 
   refreshData();
@@ -34,7 +34,7 @@ function getTodo() {
 
   const todo = todoRaw ? JSON.parse(todoRaw) : null;
 
-  return (todo !== null &&todo?.length !== 0) ? todo : false;
+  return (todo !== null && todo?.length !== 0) ? todo : false;
 }
 
 function todo_render_fnc() {
@@ -59,6 +59,7 @@ function clean_todo_tree() {
 
 function refreshData() {
   clean_todo_tree();
+  $("#task-count").html(getTodo().length || 0);
   getTodo() ? todo_render_fnc().map((el) => {
     $("#todo").append(el);
   }) : $("#todo").html(`<div class="todo-item">You don't have any tasks 🎉</div>`)
