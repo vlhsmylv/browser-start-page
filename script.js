@@ -28,7 +28,9 @@ function updateRows() {
 
 updateRows();
 
-$("#notes").html(getNotes() ? getNotes() : "You didn't take any notes :)");
+$("#notes").html(
+  getNotes() ? JSON.stringify(getNotes()) : "You didn't take any notes :)"
+);
 
 $("#notes").on("input", function (e) {
   setNotes(e.target.value);
@@ -43,7 +45,7 @@ $("#new-todo").keypress("13", function (e) {
   if (e.which === 13) {
     e.target.value.length !== 0
       ? addTodo({
-          title: e.target.value,
+          title: e.target.value.toString(),
           createdAt: new Date(),
         })
       : toast.error("Add title to your task!");
@@ -53,7 +55,7 @@ $("#new-todo").keypress("13", function (e) {
 $("#new-todo-btn").on("click", function (e) {
   $("#new-todo").val().length !== 0
     ? addTodo({
-        title: $("#new-todo").val(),
+        title: $("#new-todo").val().toString(),
         createdAt: new Date(),
       })
     : toast.error("Add title to your task!");
